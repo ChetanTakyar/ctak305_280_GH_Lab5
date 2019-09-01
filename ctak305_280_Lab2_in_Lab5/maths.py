@@ -1,15 +1,17 @@
-def add(first, second):
-    return first + second
+def add(first, second, base = 10):
+    try:
+        return int(convert_base(first + second, base))
+    except:
+        return convert_base(first + second, base)
 
 def fibonacci(length):
     def internal(first, second, count):
         third = add(first, second)
-        
-        if count == 0:
+        count -= 1
+        if count == 1:
             return third
         else:
             return internal(second, third, count)
-            count -= 1
 
     return internal(0, 1, length)
 
@@ -36,4 +38,11 @@ def convert_base(num, n):
             remainder_string = str(remainder)
         new_num_string = remainder_string+new_num_string
         current = current//n
-    return new_num_string
+    try:
+        return int(new_num_string)
+    except:
+        return new_num_string
+
+
+def factorial(number):
+    
