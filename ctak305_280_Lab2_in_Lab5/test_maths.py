@@ -1,6 +1,7 @@
 import unittest     # Import the Python unit testing framework
 import maths        # Our code to test
 from logging import _loggerClass
+from test.test_itertools import fact
 
 
 class MathsTest(unittest.TestCase):
@@ -33,7 +34,7 @@ class MathsTest(unittest.TestCase):
         self.assertEqual("1F", result, "maths.convert_base did not return the expected result for a conversion to a base over 10")
 
     def test_factorial(self):
-        f = factorial(5)
+        factTest = factorial(5)
         self.assertEqual(f, 120)
 # This allows running the unit tests from the command line (python test_maths.py)
 if __name__ == '__main__':
